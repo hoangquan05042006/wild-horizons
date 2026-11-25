@@ -1,0 +1,154 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #f4f4ec;
+  color: #1e3027;
+  font: 1rem/1.6 system-ui, sans-serif;
+}
+
+.page-header {
+  padding: clamp(2.5rem, 8vw, 6rem) 1rem;
+  background: #20382c;
+  color: #fff9e9;
+  text-align: center;
+}
+
+h1 {
+  margin: 0;
+  font: 700 clamp(3rem, 9vw, 7rem)/1 Georgia, serif;
+}
+
+.page-header p {
+  margin: 1rem 0 0;
+}
+
+main,
+footer {
+  width: min(70rem, calc(100% - 2rem));
+  margin-inline: auto;
+}
+
+main {
+  padding-block: 1.5rem;
+}
+
+main > p {
+  inline-size: min(100%, 66ch);
+  margin: 0 0 1rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 10px;
+  margin-top: 1.75rem;
+}
+
+figure {
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  border: 2px solid #62745e;
+  background: #fffdf5;
+  color: #20382c;
+}
+
+figure img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+
+figcaption {
+  padding: .5rem 1rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem 1.5rem;
+  padding-block: .5rem 2rem;
+}
+
+a {
+  color: inherit;
+}
+
+@media (min-width: 772px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  figure {
+    aspect-ratio: 1;
+    border-radius: 50%;
+  }
+
+  figure:last-child {
+    grid-column: 1 / -1;
+  }
+
+  figure img {
+    height: 100%;
+  }
+
+  figcaption {
+    position: absolute;
+    inset: auto 16% 13%;
+    border-radius: 99px;
+    background: inherit;
+  }
+}
+
+@media (min-width: 992px) {
+  figure {
+    aspect-ratio: auto;
+    border-radius: 0;
+  }
+
+  figure:last-child {
+    grid-column: auto;
+  }
+
+  figure:nth-child(3n) {
+    grid-column: 1 / -1;
+  }
+
+  figure img {
+    height: auto;
+  }
+
+  figure:nth-child(3n) img {
+    aspect-ratio: 5 / 2;
+  }
+
+  figcaption {
+    position: static;
+    border-radius: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #131c17;
+    color: #eee9d9;
+  }
+
+  figure {
+    border-color: #000;
+    background: #26372d;
+    color: #fff1bd;
+  }
+}
